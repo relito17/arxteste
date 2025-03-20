@@ -1,0 +1,104 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-open {
+  background: transparent;
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: none;
+}
+
+.menu-line,
+.menu-line::before,
+.menu-line::after {
+  display: block;
+  background: #fff;
+  height: 2px;
+  width: 24px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.menu-line {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-line::before {
+  content: '';
+  top: -8px;
+}
+
+.menu-line::after {
+  content: '';
+  bottom: -8px;
+}
+
+.menu-line.open {
+  background: transparent;
+}
+
+.menu-line.open::before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-line.open::after {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.nav-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ff6a00, #ffd700);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover .nav-line {
+  width: 100%;
+}
+
+.nav-link:hover .nav-text {
+  background: linear-gradient(to right, #ff6a00, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

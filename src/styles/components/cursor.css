@@ -1,0 +1,95 @@
+/* Cursor personalizado #################################################*/
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to right, #ff6a00, #ffd700);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, transform 0.1s;
+}
+
+/* Estado de clique */
+.custom-cursor.clicking {
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Estado de hover em itens clicáveis (links, botões, etc.) */
+.custom-cursor.hovering {
+  width: 40px;
+  height: 40px;
+  animation: cursorPulse 1s infinite;
+}
+
+/* Estado de hover para texto */
+.custom-cursor.hovering-text {
+  width: 25px;
+  height: 25px;
+  background: #ffd700;
+  animation: cursorTextPulse 1s infinite;
+}
+
+/* Animação de pulso para o cursor */
+@keyframes cursorPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Animação de pulso específica para itens de texto */
+@keyframes cursorTextPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Efeito de hover para o texto */
+.hovering-text-element {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Text moves up slightly & glows when hovered */
+.hovering-text-element:hover {
+  transform: translateY(-2px) scale(1.05);
+  color: #ffb400; /* A bright golden glow */
+  text-shadow: 0px 0px 8px rgba(255, 180, 0, 0.7);
+}
+
+/* Efeito de hover para cards (service-card) */
+.service-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.05); /* Leve aumento do tamanho */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Ocultar cursor padrão em todo o documento */
+body, a, button, input, textarea, [role="button"], [onclick], .cursor-pointer {
+  cursor: none; /* Garante que o cursor padrão não seja exibido */
+}
+* {
+  cursor: none !important; /* Força a ocultação do cursor */
+}
+/*################## cursor personalizado ######################*/

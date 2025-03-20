@@ -1,0 +1,461 @@
+/* Services section background animations */
+.services-background {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 106, 0, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(249, 211, 66, 0.15), transparent 40%);
+  filter: blur(100px);
+  opacity: 0.6;
+  z-index: 0;
+  animation: pulse 8s ease-in-out infinite alternate;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    filter: blur(100px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(80px);
+  }
+  100% {
+    opacity: 0.4;
+    filter: blur(100px);
+  }
+}
+
+.services-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 10s ease-in-out infinite;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 106, 0, 0.2),
+    rgba(249, 211, 66, 0.2)
+  );
+}
+
+.services-glow:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  width: 300px;
+  height: 300px;
+}
+
+.services-glow:nth-child(2) {
+  top: 50%;
+  right: 15%;
+  animation-delay: -3s;
+  width: 250px;
+  height: 250px;
+}
+
+.services-glow:nth-child(3) {
+  bottom: 15%;
+  left: 25%;
+  animation-delay: -6s;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-30px) scale(1.1) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateY(20px) scale(0.9) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+.service-card {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 106, 0, 0.1),
+    rgba(0, 0, 0, 0.4)
+  );
+  border: 1px solid rgba(255, 106, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 106, 0, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 106, 0, 0.3);
+  box-shadow: 
+    0 10px 30px -10px rgba(255, 106, 0, 0.2),
+    0 0 0 1px rgba(255, 106, 0, 0.1);
+}
+
+.service-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* App Development Card Code Highlighting */
+.code-highlight {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 106, 0, 0.2),
+    rgba(249, 211, 66, 0.2)
+  );
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 0 -8px;
+  transition: all 0.3s ease;
+}
+
+.code-highlight:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 106, 0, 0.3),
+    rgba(249, 211, 66, 0.3)
+  );
+  transform: translateX(4px);
+}
+
+.code-line {
+  font-family: 'JetBrains Mono', monospace;
+  padding: 2px 0;
+  transition: all 0.3s ease;
+}
+
+.code-line.active {
+  color: #FF6A00;
+  text-shadow: 0 0 10px rgba(255, 106, 0, 0.3);
+}
+
+.code-keyword {
+  color: #FF6A00;
+}
+
+.code-string {
+  color: #f9d342;
+}
+
+.code-comment {
+  color: #666;
+  font-style: italic;
+}
+
+/* Update the services scroll animation to only apply on desktop */
+@media (min-width: 768px) {
+  .services-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .services-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-380px * 5 - 2rem * 5));
+    }
+  }
+}
+
+/* Add these styles to your existing services.css file */
+
+.typing-container {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-text {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #FFA100;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.chat-box {
+  background: #0D0D0D;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-out;
+}
+
+.chat-box:hover {
+  border-color: rgba(255, 106, 0, 0.4);
+  box-shadow: 0 0 25px rgba(255, 106, 0, 0.15);
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid #FF6A00;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end),
+             blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #FF6A00 }
+}
+
+.chat-input {
+  animation: glow 2s infinite;
+}
+
+.chat-input-icon {
+  transition: all 0.3s ease;
+}
+
+.chat-input-icon:hover {
+  transform: translateX(2px);
+  color: #FF6A00;
+}
+
+/* Enhanced hover effects */
+.group:hover .chat-box {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 106, 0, 0.2);
+}
+
+.group:hover .chat-input {
+  border-color: rgba(255, 106, 0, 0.4);
+}
+
+/* Smooth transitions */
+.chat-box * {
+  transition: all 0.3s ease-out;
+}
+
+
+
+
+/* Add to existing services.css */
+
+/* Typing Animation for Hero Section */
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.typing-animation.fade-out {
+  opacity: 0;
+}
+
+/* Feature Card Animations */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 106, 0, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.feature-card:hover::after {
+  transform: translateX(100%);
+}
+
+/* Animation Containers */
+.animation-container {
+  height: 300px;
+  background: rgba(255, 106, 0, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.animation-container.active {
+  opacity: 1;
+  background: rgba(255, 106, 0, 0.1);
+}
+
+/* Setup Animation */
+.setup-demo {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setup-steps {
+  width: 80%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.step-indicator {
+  width: 12px;
+  height: 12px;
+  background: #FF6A00;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: setupProgress 3s infinite;
+}
+
+.step-progress {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(to right, #FF6A00, #f9d342);
+  animation: progressFill 3s infinite;
+}
+
+/* 24/7 Availability Animation */
+.availability-demo {
+  padding: 2rem;
+  height: 100%;
+  position: relative;
+}
+
+.clock-face {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #FF6A00;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.message-bubbles {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+/* Analytics Animation */
+.analytics-demo {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.chart-bars {
+  display: flex;
+  gap: 8px;
+  height: 200px;
+  align-items: flex-end;
+}
+
+.chart-bars::before {
+  content: '';
+  width: 4px;
+  height: 0;
+  background: #FF6A00;
+  animation: barGrow 2s infinite;
+}
+
+/* AI Learning Animation */
+.learning-demo {
+  padding: 2rem;
+  height: 100%;
+  position: relative;
+}
+
+.neural-network {
+  position: absolute;
+  inset: 2rem;
+  opacity: 0.6;
+  background: 
+    radial-gradient(circle at 30% 30%, #FF6A00 2px, transparent 2px),
+    radial-gradient(circle at 70% 70%, #f9d342 2px, transparent 2px);
+  animation: pulseNetwork 2s infinite;
+}
+
+.connection-paths {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background: linear-gradient(45deg, #FF6A00, transparent, #f9d342);
+  animation: connectionFlow 3s infinite;
+}
+
+/* Animations */
+@keyframes setupProgress {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+@keyframes progressFill {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes barGrow {
+  0% { height: 0; }
+  50% { height: 100%; }
+  100% { height: 0; }
+}
+
+@keyframes pulseNetwork {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes connectionFlow {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
