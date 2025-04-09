@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
           <h1 className={`text-5xl md:text-7xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             <span>AR</span>
-            <span className="gradient-text">x</span>
+            <span className="gradient-text">xxx</span>
             <span>Automate</span>
           </h1>
           <p className={`text-xl md:text-2xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
