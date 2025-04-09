@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
@@ -10,7 +10,7 @@ import ProcessSection from './components/ProcessSection';
 import Testimonials from './components/Testimonials';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import BackToTop from "../src/components/ui/BackToTopButton";
+import BackToTop from "./components/ui/BackToTopButton";
 import CustomerSupportAI from './pages/CustomerSupportAI';
 import CustomAutomation from './pages/CustomAutomation';
 import AIOutreach from './pages/AIOutreach';
@@ -23,6 +23,8 @@ const Home = () => {
   const location = useLocation();
 
   React.useEffect(() => {
+    console.log("Home component rendered!"); // Debugging log
+
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach((element) => {
@@ -68,6 +70,8 @@ const Home = () => {
 };
 
 function App() {
+  console.log("App loaded successfully!"); // Debugging log
+
   return (
     <Router>
       <Routes>
